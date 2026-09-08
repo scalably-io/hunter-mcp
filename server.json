@@ -1,0 +1,25 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.scalably/hunter-mcp",
+  "title": "Hunter MCP",
+  "description": "Hunter.io MCP: domain search, email finder and verifier, enrichment, discovery, leads. 11 tools.",
+  "repository": { "url": "https://github.com/scalably-io/hunter-mcp", "source": "github" },
+  "websiteUrl": "https://scalably.io/mcp/hunter-mcp",
+  "version": "1.0.0",
+  "packages": [
+    {
+      "registryType": "npm",
+      "registryBaseUrl": "https://registry.npmjs.org",
+      "identifier": "@scalably-io/hunter-mcp",
+      "version": "1.0.0",
+      "runtimeHint": "npx",
+      "transport": { "type": "stdio" },
+      "environmentVariables": [
+        { "name": "HUNTER_API_KEY", "description": "Hunter.io API key from hunter.io/api-keys", "isRequired": true, "isSecret": true },
+        { "name": "HUNTER_API_BASE", "description": "Hunter API base URL, default https://api.hunter.io/v2", "isRequired": false, "isSecret": false },
+        { "name": "HUNTER_TIMEOUT_MS", "description": "Per-request timeout in milliseconds, default 30000", "isRequired": false, "isSecret": false },
+        { "name": "HUNTER_RETRY_BASE_MS", "description": "Base delay in milliseconds for the GET retry backoff, default 500", "isRequired": false, "isSecret": false }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "name": "@scalably-io/hunter-mcp",
+  "version": "1.0.0",
+  "description": "Hunter.io MCP: domain search, email finder and verifier, enrichment, discovery, leads. 11 tools.",
+  "mcpName": "io.scalably/hunter-mcp",
+  "type": "module",
+  "license": "MIT",
+  "author": "Scalably <hello@scalably.io>",
+  "homepage": "https://scalably.io/mcp/hunter-mcp",
+  "repository": { "type": "git", "url": "git+https://github.com/scalably-io/hunter-mcp.git" },
+  "bugs": { "url": "https://github.com/scalably-io/hunter-mcp/issues" },
+  "keywords": ["mcp", "model-context-protocol", "scalably", "hunter", "email-finder", "lead-enrichment"],
+  "bin": { "scalably-hunter-mcp": "dist/index.js" },
+  "files": ["dist"],
+  "publishConfig": { "access": "public" },
+  "engines": { "node": ">=20" },
+  "scripts": { "build": "tsc", "test": "npm run build && node --test test/*.test.js" },
+  "dependencies": { "fastmcp": "4.20.6", "zod": "4.5.4" },
+  "devDependencies": { "@types/node": "26.5.0", "typescript": "7.0.2" }
+}

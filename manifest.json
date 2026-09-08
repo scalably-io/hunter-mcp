@@ -1,0 +1,46 @@
+{
+  "manifest_version": "0.4",
+  "name": "hunter-mcp",
+  "display_name": "Hunter MCP",
+  "version": "1.0.0",
+  "description": "Hunter.io MCP: domain search, email finder and verifier, enrichment, discovery, leads. 11 tools.",
+  "author": { "name": "Scalably", "email": "hello@scalably.io", "url": "https://scalably.io" },
+  "repository": { "type": "git", "url": "https://github.com/scalably-io/hunter-mcp" },
+  "homepage": "https://scalably.io/mcp/hunter-mcp",
+  "license": "MIT",
+  "keywords": ["mcp", "scalably", "hunter"],
+  "server": {
+    "type": "node",
+    "entry_point": "dist/index.js",
+    "mcp_config": {
+      "command": "node",
+      "args": ["${__dirname}/dist/index.js"],
+      "env": {
+        "HUNTER_API_KEY": "${user_config.api_key}",
+        "HUNTER_API_BASE": "${user_config.api_base}",
+        "HUNTER_TIMEOUT_MS": "${user_config.timeout_ms}",
+        "HUNTER_RETRY_BASE_MS": "${user_config.retry_base_ms}"
+      }
+    }
+  },
+  "tools": [
+    { "name": "account_info", "description": "Read the Hunter v2 account plan and exact current credit usage." },
+    { "name": "domain_search", "description": "Search Hunter v2 emails for one domain/company with current filters." },
+    { "name": "email_finder", "description": "Find and automatically verify the most likely professional email." },
+    { "name": "email_verifier", "description": "Verify one email address with Hunter v2." },
+    { "name": "email_count", "description": "Count Hunter email coverage for a domain/company without returning addresses." },
+    { "name": "email_enrichment", "description": "Enrich a person from an email address or LinkedIn handle." },
+    { "name": "company_enrichment", "description": "Enrich a company from its domain." },
+    { "name": "combined_enrichment", "description": "Enrich both a person and their company from one email." },
+    { "name": "discover", "description": "Use Hunter Discover v2 to find companies from structured or natural-language filters." },
+    { "name": "create_lead", "description": "Create one Hunter lead. This is a single-attempt mutation." },
+    { "name": "list_leads", "description": "List Hunter leads with current filters." }
+  ],
+  "user_config": {
+    "api_key": { "type": "string", "title": "Hunter API key", "description": "API key from hunter.io/api-keys", "required": true, "sensitive": true },
+    "api_base": { "type": "string", "title": "API base URL", "description": "Override the Hunter API base URL", "default": "https://api.hunter.io/v2", "required": false, "sensitive": false },
+    "timeout_ms": { "type": "string", "title": "Request timeout (ms)", "description": "Per-request timeout in milliseconds", "default": "30000", "required": false, "sensitive": false },
+    "retry_base_ms": { "type": "string", "title": "Retry base delay (ms)", "description": "Base delay in milliseconds for the GET retry backoff", "default": "500", "required": false, "sensitive": false }
+  },
+  "compatibility": { "claude_desktop": ">=0.10.0", "platforms": ["darwin", "win32", "linux"], "runtimes": { "node": ">=20" } }
+}
