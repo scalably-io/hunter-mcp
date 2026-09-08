@@ -18,3 +18,13 @@ test('every addTool block declares annotations with title and readOnlyHint', () 
     assert.match(head, /readOnlyHint:\s*(true|false)/, `${name}: readOnlyHint must be explicit`);
   }
 });
+
+test('create_lead is the only tool that is not read-only', () => {
+  const writes = [];
+  for (const block of src.split(/addTool\(\{/).slice(1)) {
+    const head = block.slice(0, block.indexOf('execute:'));
+    const name = head.match(/name:\s*'([a-z0-9_]+)'/)?.[1] ?? '?';
+    if (/readOnlyHint:\s*false/.test(head)) writes.push(name);
+  }
+  assert.deepEqual(writes, ['create_lead']);
+});
