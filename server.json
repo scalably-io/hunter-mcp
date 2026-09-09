@@ -3,7 +3,10 @@
   "name": "io.scalably/hunter-mcp",
   "title": "Hunter MCP",
   "description": "Hunter.io MCP: domain search, email finder and verifier, enrichment, discovery, leads. 11 tools.",
-  "repository": { "url": "https://github.com/scalably-io/hunter-mcp", "source": "github" },
+  "repository": {
+    "url": "https://github.com/scalably-io/hunter-mcp",
+    "source": "github"
+  },
   "websiteUrl": "https://scalably.io/mcp/hunter-mcp",
   "version": "1.0.0",
   "packages": [
@@ -13,13 +16,43 @@
       "identifier": "@scalably-io/hunter-mcp",
       "version": "1.0.0",
       "runtimeHint": "npx",
-      "transport": { "type": "stdio" },
+      "transport": {
+        "type": "stdio"
+      },
       "environmentVariables": [
-        { "name": "HUNTER_API_KEY", "description": "Hunter.io API key from hunter.io/api-keys", "isRequired": true, "isSecret": true },
-        { "name": "HUNTER_API_BASE", "description": "Hunter API base URL, default https://api.hunter.io/v2", "isRequired": false, "isSecret": false },
-        { "name": "HUNTER_TIMEOUT_MS", "description": "Per-request timeout in milliseconds, default 30000", "isRequired": false, "isSecret": false },
-        { "name": "HUNTER_RETRY_BASE_MS", "description": "Base delay in milliseconds for the GET retry backoff, default 500", "isRequired": false, "isSecret": false }
+        {
+          "name": "HUNTER_API_KEY",
+          "description": "Hunter.io API key from hunter.io/api-keys",
+          "isRequired": true,
+          "isSecret": true
+        },
+        {
+          "name": "HUNTER_API_BASE",
+          "description": "Hunter API base URL, default https://api.hunter.io/v2",
+          "isRequired": false,
+          "isSecret": false
+        },
+        {
+          "name": "HUNTER_TIMEOUT_MS",
+          "description": "Per-request timeout in milliseconds, default 30000",
+          "isRequired": false,
+          "isSecret": false
+        },
+        {
+          "name": "HUNTER_RETRY_BASE_MS",
+          "description": "Base delay in milliseconds for the GET retry backoff, default 500",
+          "isRequired": false,
+          "isSecret": false
+        }
       ]
+    },
+    {
+      "registryType": "mcpb",
+      "identifier": "https://github.com/scalably-io/hunter-mcp/releases/download/v1.0.0/hunter-mcp.mcpb",
+      "fileSha256": "b314a78d5aa209907714fc9b10e446d4e88cd9abf3bbd075c2b66699ff999872",
+      "transport": {
+        "type": "stdio"
+      }
     }
   ]
 }
