@@ -52,7 +52,7 @@ Claude Desktop: download `hunter-mcp.mcpb` from the latest GitHub release and op
 
 ## Reply shape
 
-Every tool returns plain JSON with `status` (`succeeded`, `partial`, `no_op`), `summary`, `target`, `result`, `proof`, `warnings`, `recovery`. Failures throw a plain error string: `<code>: <message> <hint>`.
+Every tool returns plain JSON with `status` (`succeeded`, `partial`, `no_op`), `operation`, `summary`, `target`, `result`, `proof`, `warnings`, `recovery`. Failures throw a plain error string: `<code>: <message> <hint>`.
 
 ## Limits
 
